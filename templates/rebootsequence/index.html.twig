@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RebootsequenceController!{% endblock %}
+
+{% block head %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; text-align: center; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .rebootsq {font-size:72px; text-align: center; }
+    .rebootsqru {font-size:64px;text-align:center; color:#808080;}
+    .ready {font-size:82px; padding:70px 10px; text-align:center; background-color: black;color:white;}
+    .reboot {text-align: center; padding:200px;}
+</style>
+
+<div id="inst" class="example-wrapper">
+    <h5>click on screen</h5>
+
+
+</div>
+
+<div id="rebootsq" class="rebootsq"></div>
+<div id="rebootsqru" class="rebootsqru"></div>
+
+<div id="reboot" hidden class="reboot">
+    <button type="button" ID="ButtonReboot" class="ready" onclick="window.location='{{mission}}'" />
+              READY TO COMPLY
+    </button>
+</div>
+
+
+{# 
+   {% for i in rebootsequence_en %}
+
+        <h1>{{i}}</h1>
+            {% if i == i %}
+
+                <html onclick="rebootsqfunc()"> 
+            
+            {% endif %}    
+
+    {% endfor %}
+#}
+
+
+
+<script>
+
+</script>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+       $(document).ready(function(){
+            var words_en= {{rebootsequence_en|json_encode|raw }};
+            var words_ru = {{rebootsequence_ru|json_encode|raw}};
+            $('html').click(function() {
+                $('#rebootsq').html(words_en.shift()); 
+                $('#rebootsqru').html(words_ru.shift());
+            if ($("#rebootsq:contains('freight')").length > 0) {
+                document.getElementById("reboot").hidden = false;
+                } else {
+                
+                }
+
+            });
+        }); 
+    </script>   
+{% endblock %}
+
+
+

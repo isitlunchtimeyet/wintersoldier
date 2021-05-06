@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{page_title}}{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .yesno {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+            text-align: center;
+    }
+    .msg {
+            text-align: center;
+    }
+    .initbutton {
+        text-align: center;
+    }
+    div.reboot {
+  display:none;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>Welcome to Winter Soldier Program</h1>
+
+</div>
+
+<div id="yesno" class="yesno">
+    <h2>Are you ready for your mission?</h2>
+    <button id="yesbutton" class="yesnobutton" onclick="yes()">Yes</button>
+    <button id="nobutton" class="yesnobutton" onclick="no()">Not yet</button>
+</div>
+
+<div class="msg">
+<p id="message"></p>
+</div>
+
+<div id="reboot" class="initbutton" hidden>
+    <button type="button" ID="ButtonReboot" onclick="window.location='{{rebootinit}}'" />
+              Initialise Reboot Sequence
+    </button>
+</div>
+
+
+<script>
+function no() {
+  document.getElementById("message").innerHTML = "You're a <b> pussy </b> !! <br> Man up and click Yes!";
+}
+</script>
+
+
+<script>
+function yes() {
+  var name;
+  var person = prompt("Please enter your name:");
+  if (person == null || person == "") {
+    name = "Enter a name motherfucker!";
+  }
+  else{
+    name = "Winter Soldier " + person.bold() + " " + "Authenticated!" ;
+    document.getElementById("reboot").hidden = false;
+    document.getElementById("yesno").hidden = true;
+    }
+    document.getElementById("message").innerHTML = name;
+
+}
+
+</script>
+
+
+
+
+{% endblock %}
+ 
