@@ -76,7 +76,7 @@ class MissionController extends AbstractController
 
 
 
-        $wintersoldiername='Chittesh Sham';
+        $wintersoldiername='badmudhafucker';
         $wintersoldierage=date('Y')-1996;
         $wintersoldierlocation='Mauritius';
         $wintersoldierkills='142';
